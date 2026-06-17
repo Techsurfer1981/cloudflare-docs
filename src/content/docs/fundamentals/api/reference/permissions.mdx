@@ -71,6 +71,18 @@ The applicable scope of account permissions is `com.cloudflare.api.account`.
 
 </TabItem> </Tabs>
 
+:::note[Logpush API permissions]
+
+Logpush job management requires specific **Logs** permissions. General zone or account read access is not sufficient.
+
+- **Zone Logs Read** — Required to read zone-scoped Logpush jobs (for example, `http_requests`, `firewall_events`).
+- **Zone Logs Write** — Required to create, update, or delete zone-scoped Logpush jobs.
+- **Account Logs Read** — Required to read account-scoped Logpush jobs (for example, `audit_logs`, `gateway_http`).
+- **Account Logs Write** — Required to create, update, or delete account-scoped Logpush jobs.
+
+A token with only **Zone Read** or **Account Settings Read** will receive an `Authentication error` (code `10000`) when calling Logpush endpoints.
+:::
+
 ## Zone permissions
 
 The applicable scope of zone permissions is `com.cloudflare.api.account.zone`.
